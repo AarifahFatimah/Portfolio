@@ -2,11 +2,6 @@
 
 My personal portfolio website, made for **Assignment-1** of **Full Stack Development (SPC0701CS)**.
 
-- **Name:** Aarifah
-- **Roll No.:** [your roll number]
-- **Class:** B.E. (CSE) VII Semester
-- **Section:** [A / B / C]
-- **College:** Stanley College of Engineering & Technology for Women
 
 ---
 
@@ -23,7 +18,7 @@ index.html        the whole website (all the sections)
 css/style.css     my own CSS
 js/main.js        my own JavaScript
 assets/img/       my photo goes here
-docs/             the assignment question paper and report template
+
 ```
 
 ---
@@ -39,8 +34,7 @@ docs/             the assignment question paper and report template
 | DOM & Events | Building the cards, click and submit events |
 | Validation | Checking the contact form before submitting |
 
-Bootstrap and the fonts are loaded from a CDN, so an internet connection is needed
-for the styling.
+
 
 ### About the design
 
@@ -90,8 +84,7 @@ The assignment asked for at least two interactive features. I made three:
 | Subject | One option must be selected |
 | Message | Cannot be empty, at least 10 characters |
 
-Nothing is actually emailed because this is a front-end only project. The details
-are printed in the browser console instead.
+
 
 ---
 
@@ -106,20 +99,3 @@ are printed in the browser console instead.
 
 ---
 
-## What I still need to fill in
-
-I left placeholders in square brackets like `[your roll number]`. I need to replace:
-
-- [ ] My photo - save it as `assets/img/profile.jpg`
-- [ ] Introduction and About paragraphs in `index.html`
-- [ ] Personal details, roll number and email
-- [ ] The three rows in the education table
-- [ ] My achievements and certificates
-- [ ] My contact details and GitHub link
-- [ ] The `skills` and `projects` arrays at the top of `js/main.js`
-
----
-
-## GitHub
-
-Repository: [add your repository link here]
