@@ -1,0 +1,647 @@
+/* ==========================================
+   My Portfolio - style.css
+   Full Stack Development Assignment-1
+
+   I used Bootstrap for the layout (grid, navbar,
+   cards, form, table) and then wrote this file to
+   change how everything looks.
+
+   The style I went for uses thick black borders and
+   a hard shadow with no blur, so the boxes look like
+   they are stacked on top of the page.
+   ========================================== */
+
+
+/* ==========================================
+   1. COLOURS
+   I put my colours in variables at the top so
+   I only have to change them in one place.
+   ========================================== */
+
+:root {
+  --purple: #7c3aed;
+  --purple-dark: #5b21b6;
+  --lilac: #ddd6fe;
+  --pale: #f3efff;      /* background of every second section */
+  --paper: #ffffff;     /* background of the cards */
+  --ink: #17141f;       /* text colour */
+  --line: #17141f;      /* border colour */
+  --shadow: #17141f;    /* shadow colour */
+  --red: #d61f4e;
+  --green: #128a55;
+}
+
+/* Dark mode. JavaScript puts data-bs-theme="dark"
+   on the <html> tag and these colours take over. */
+[data-bs-theme="dark"] {
+  --purple: #a78bfa;
+  --purple-dark: #c4b5fd;
+  --lilac: #3b2f5c;
+  --pale: #16131f;
+  --paper: #221c33;
+  --ink: #f3efff;
+  --line: #f3efff;
+  --shadow: #a78bfa;
+  --red: #ff7a9c;
+  --green: #4ade80;
+}
+
+
+/* ==========================================
+   2. BASIC PAGE STYLES
+   ========================================== */
+
+body {
+  font-family: "Space Grotesk", Arial, sans-serif;   /* typography */
+  background-color: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* Space at the top so the sticky navbar does not
+   cover the heading when I click a nav link */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* The background colour for every second section */
+.band {
+  background-color: var(--pale);
+  border-top: 3px solid var(--line);
+  border-bottom: 3px solid var(--line);
+}
+
+h1, h2, .navbar-brand, .footer-name {
+  font-family: "Archivo Black", Arial, sans-serif;
+  letter-spacing: -1px;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+/* Section headings look like a purple label
+   sitting on the page with a shadow behind it */
+h2 {
+  display: inline-block;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  background-color: var(--purple);
+  color: #ffffff;
+  border: 3px solid var(--line);
+  box-shadow: 6px 6px 0 var(--shadow);   /* hard shadow, no blur */
+  padding: 8px 18px;
+  margin-bottom: 30px;
+}
+
+[data-bs-theme="dark"] h2 {
+  color: #17141f;
+}
+
+h3 {
+  font-weight: 700;
+}
+
+p {
+  color: var(--ink);
+}
+
+a {
+  color: var(--purple-dark);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--purple);
+}
+
+
+/* ==========================================
+   3. SKIP LINK (accessibility)
+   ========================================== */
+
+.skip-link {
+  position: absolute;       /* positioning */
+  top: -60px;
+  left: 10px;
+  z-index: 2000;
+  background-color: var(--purple);
+  color: #ffffff;
+  border: 3px solid var(--line);
+  padding: 10px 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Only show it when the user presses Tab */
+.skip-link:focus {
+  top: 10px;
+  color: #ffffff;
+}
+
+
+/* ==========================================
+   4. NAVBAR
+   ========================================== */
+
+.navbar {
+  background-color: var(--paper);
+  border-bottom: 3px solid var(--line);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: var(--purple);
+}
+
+.navbar .nav-link {
+  color: var(--ink);
+  font-weight: 500;
+  padding: 4px 10px;
+  border: 3px solid transparent;
+}
+
+/* A purple box appears around the link on hover */
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  background-color: var(--lilac);
+  border: 3px solid var(--line);
+  color: var(--ink);
+}
+
+.navbar-toggler {
+  border: 3px solid var(--line);
+  border-radius: 0;
+  padding: 4px 10px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+
+/* ==========================================
+   5. BUTTONS
+   All my buttons are square with a thick border
+   and a shadow. When you click one it moves down
+   a little and the shadow goes away, like a real
+   button being pressed.
+   ========================================== */
+
+.btn {
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-weight: 700;
+  border: 3px solid var(--line);
+  border-radius: 0;
+  box-shadow: 4px 4px 0 var(--shadow);
+  padding: 8px 20px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.btn-fill {
+  background-color: var(--purple);
+  color: #ffffff;
+}
+
+.btn-fill:hover {
+  background-color: var(--purple-dark);
+  color: #ffffff;
+}
+
+.btn-plain {
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+.btn-plain:hover {
+  background-color: var(--lilac);
+  color: var(--ink);
+}
+
+[data-bs-theme="dark"] .btn-fill,
+[data-bs-theme="dark"] .btn-fill:hover {
+  color: #17141f;
+}
+
+/* The pressed effect */
+.btn:active {
+  box-shadow: 0 0 0 var(--shadow);
+  transform: translate(4px, 4px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 3px;
+}
+
+/* The dark mode button in the navbar */
+#themeBtn {
+  background-color: var(--lilac);
+  color: var(--ink);
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  margin-top: 0;
+}
+
+
+/* ==========================================
+   6. HOME SECTION
+   ========================================== */
+
+/* The small label above my name */
+.sticker {
+  display: inline-block;
+  background-color: var(--lilac);
+  color: var(--ink);
+  border: 3px solid var(--line);
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.profile-photo {
+  border: 3px solid var(--line);          /* box model: border */
+  box-shadow: 10px 10px 0 var(--purple);
+  background-color: var(--lilac);
+  padding: 0;                             /* box model: padding */
+  max-width: 280px;
+}
+
+
+/* ==========================================
+   7. CARDS (skills, projects, details)
+   ========================================== */
+
+.card {
+  background-color: var(--paper);
+  color: var(--ink);
+  border: 3px solid var(--line);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 var(--shadow);
+  height: 100%;
+}
+
+/* The card lifts up a bit when the mouse is on it */
+.card:hover {
+  box-shadow: 9px 9px 0 var(--purple);
+}
+
+.card-title {
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--line);
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+/* Every card needs a gap under it */
+#skillsRow > div,
+#projectsRow > div {
+  margin-bottom: 25px;
+}
+
+
+/* ==========================================
+   8. LISTS
+   ========================================== */
+
+/* I used Flexbox here so the skill names wrap onto
+   the next line when there is no space */
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.skill-list li {
+  background-color: var(--lilac);
+  color: var(--ink);
+  border: 2px solid var(--line);
+  padding: 3px 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* I used CSS Grid here to line up the technology names
+   in the project cards into neat columns */
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.tech-grid li::before {
+  content: "> ";
+  color: var(--purple);
+  font-weight: 700;
+}
+
+/* My bullet lists use a purple square instead of a dot */
+.tick-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tick-list li {
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.tick-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 11px;
+  height: 11px;
+  background-color: var(--purple);
+  border: 2px solid var(--line);
+}
+
+
+/* ==========================================
+   9. PROJECT CARD EXTRAS
+   ========================================== */
+
+/* The small "Web" or "Java" label on a project card */
+.project-type {
+  display: inline-block;
+  background-color: var(--purple);
+  color: #ffffff;
+  border: 2px solid var(--line);
+  padding: 1px 9px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+[data-bs-theme="dark"] .project-type {
+  color: #17141f;
+}
+
+
+/* ==========================================
+   10. EDUCATION TABLE
+   ========================================== */
+
+.table {
+  --bs-table-bg: transparent;
+  border: 3px solid var(--line);
+  color: var(--ink);
+  margin-bottom: 0;
+}
+
+.table caption {
+  caption-side: top;
+  color: var(--ink);
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+
+.table thead th {
+  background-color: var(--purple);
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  border: 2px solid var(--line);
+  padding: 12px 10px;
+}
+
+[data-bs-theme="dark"] .table thead th {
+  color: #17141f;
+}
+
+.table tbody td {
+  border: 2px solid var(--line);
+  padding: 12px 10px;
+  vertical-align: middle;
+}
+
+.table tbody tr:nth-child(even) td {
+  background-color: var(--pale);
+}
+
+.band .table tbody tr:nth-child(even) td {
+  background-color: var(--paper);
+}
+
+
+/* ==========================================
+   11. CONTACT SECTION
+   ========================================== */
+
+.contact-list li {
+  border: 3px solid var(--line);
+  background-color: var(--paper);
+  box-shadow: 4px 4px 0 var(--shadow);
+  padding: 10px 14px;
+  margin-bottom: 14px;
+}
+
+.contact-list strong {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--purple-dark);
+}
+
+
+/* ==========================================
+   12. FORM
+   ========================================== */
+
+.form-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.form-control,
+.form-select {
+  background-color: var(--paper);
+  color: var(--ink);
+  border: 3px solid var(--line);
+  border-radius: 0;
+  padding: 10px 12px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--paper);
+  color: var(--ink);
+  border-color: var(--purple);
+  box-shadow: 4px 4px 0 var(--purple);
+}
+
+.form-control::placeholder {
+  color: var(--ink);
+  opacity: 0.5;
+}
+
+/* The red error message under each input */
+.error-text {
+  display: block;
+  color: var(--red);
+  font-size: 0.85rem;
+  font-weight: 700;
+  min-height: 22px;
+  margin-top: 4px;
+}
+
+/* Red border on a wrong input.
+   I add the "wrong-input" class using JavaScript. */
+.wrong-input {
+  border-color: var(--red);
+  box-shadow: 4px 4px 0 var(--red);
+}
+
+/* Green border on a correct input */
+.right-input {
+  border-color: var(--green);
+}
+
+
+/* ==========================================
+   13. ALERTS
+   ========================================== */
+
+.alert {
+  border: 3px solid var(--line);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 var(--shadow);
+  font-weight: 700;
+}
+
+.alert-success {
+  background-color: var(--green);
+  color: #ffffff;
+}
+
+.alert-info {
+  background-color: var(--lilac);
+  color: var(--ink);
+}
+
+[data-bs-theme="dark"] .alert-success {
+  color: #17141f;
+}
+
+
+/* ==========================================
+   14. FOOTER
+   ========================================== */
+
+footer {
+  background-color: var(--purple);
+  color: #ffffff;
+  border-top: 3px solid var(--line);
+}
+
+footer p {
+  color: #ffffff;
+}
+
+.footer-name {
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+[data-bs-theme="dark"] footer,
+[data-bs-theme="dark"] footer p {
+  color: #17141f;
+}
+
+
+/* ==========================================
+   15. MEDIA QUERIES (mobile first)
+   The styles above are written for small screens.
+   These change things on bigger screens.
+   ========================================== */
+
+/* Tablets and bigger */
+@media (min-width: 768px) {
+
+  h1 {
+    font-size: 4.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+}
+
+/* Laptops and bigger */
+@media (min-width: 992px) {
+
+  section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  h1 {
+    font-size: 5.5rem;
+  }
+
+}
+
+/* Extra rules for small phones */
+@media (max-width: 575px) {
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    box-shadow: 4px 4px 0 var(--shadow);
+  }
+
+  /* Make the buttons full width on a phone */
+  #home .btn {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .profile-photo {
+    box-shadow: 6px 6px 0 var(--purple);
+  }
+
+  .card {
+    box-shadow: 4px 4px 0 var(--shadow);
+  }
+
+}
